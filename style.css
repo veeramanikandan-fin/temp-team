@@ -1,14 +1,40 @@
 /* General Styles */
 body {
+    min-height: 100vh;
+    background: #f8f9fa;
+}
+
+/* New background styles */
+.bg-auth {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-auth::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.auth-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* Card Styles */
 .card {
     border-radius: 15px;
     border: none;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s;
+    background: #ffffff;
 }
 
 .card:hover {
@@ -28,20 +54,21 @@ body {
 
 /* Form Elements */
 .input-group {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .input-group-text {
     background-color: transparent;
     border-right: none;
     padding: 0.75rem 1rem;
+    min-width: 46px;
+    justify-content: center;
 }
 
 .form-control {
     border-left: none;
     padding: 0.75rem 1rem;
-    border-radius: 10px;
-    border: 1px solid #e1e1e1;
+    height: auto;
 }
 
 .form-control:focus {
@@ -61,7 +88,9 @@ body {
 .btn-primary, .btn-reset {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border: none;
-    padding: 12px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
     font-weight: 500;
     width: 100%;
     border-radius: 10px;
@@ -76,12 +105,15 @@ body {
 }
 
 /* Social Buttons */
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
 .social-buttons .btn {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    line-height: 40px;
+    flex: 0 0 auto;
 }
 
 .social-buttons .btn i {
@@ -137,12 +169,61 @@ body {
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
-    .card-body {
-        padding: 2rem !important;
+@media (max-width: 767.98px) {
+    h2 {
+        font-size: 1.75rem;
     }
     
-    .container {
-        padding: 1rem;
+    .form-label {
+        font-size: 0.9rem;
+    }
+    
+    .card-body {
+        padding: 1.5rem !important;
+    }
+}
+
+/* Medium devices adjustments */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .auth-content {
+        padding: 2rem;
+    }
+}
+
+/* Large devices adjustments */
+@media (min-width: 992px) {
+    .auth-content {
+        padding: 3rem;
+    }
+}
+
+/* Custom utility classes */
+.w-100 {
+    width: 100% !important;
+}
+
+.min-vh-100 {
+    min-height: 100vh !important;
+}
+
+/* Form check responsive spacing */
+.form-check {
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 575.98px) {
+    .form-check {
+        margin-bottom: 0.75rem;
+    }
+    
+    .social-buttons .btn {
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+    }
+    
+    .social-buttons .btn i {
+        line-height: 36px;
+        font-size: 0.875rem;
     }
 } 
